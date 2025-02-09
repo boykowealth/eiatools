@@ -1,3 +1,6 @@
+import pandas as pd
+from eia_meta import eia_meta
+
 def get_facet_data(sub, facet_id, api_key):
     """
     Get facet data

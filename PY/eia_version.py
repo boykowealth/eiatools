@@ -1,3 +1,6 @@
+from map_headers import map_headers
+from eia_call import eia_call
+
 def eia_version(api_key):
     """
     EIA Version Request

@@ -1,4 +1,6 @@
 import pandas as pd
+from map_headers import map_headers
+from eia_call import eia_call
 
 default_headers = {
     'sort': 'period',

@@ -1,4 +1,5 @@
 import pandas as pd
+from eia_call import eia_call
 
 def eia_data(api_endpoint, freq, facets=None, start=None, end=None, sort_df=None, data_types=None, offset=None, api_key=None):
     """

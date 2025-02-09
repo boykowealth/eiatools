@@ -1,4 +1,5 @@
 import pandas as pd
+from eia_data import eia_data
 
 def data_tree(r_tree: pd.DataFrame, api_key: str) -> pd.DataFrame:
     """

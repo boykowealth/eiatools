@@ -1,5 +1,12 @@
 import pandas as pd
 import numpy as np
+from eia_meta import eia_meta
+from detect_routes import detect_routes
+from get_routes import get_routes
+from get_all_freq import get_all_freq
+from get_facet_data import get_facet_data
+from get_facet_types import get_facet_types
+from get_all_data_types import get_data_types
 
 def route_tree(sub="", api_key=None, iter=1, iter_offset=1):
     """

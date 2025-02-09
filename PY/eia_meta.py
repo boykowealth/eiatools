@@ -1,3 +1,5 @@
+from eia_call import eia_call
+
 def eia_meta(sub, api_key):
     """
     EIA Metadata Request

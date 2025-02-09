@@ -1,5 +1,7 @@
 import pandas as pd
 
+from eia_data import eia_data
+
 def dindex_get_data(dindex_table, api_key, start=None, end=None):
     """
     A function accepting rows from the data_index object and then fetches data from EIA
