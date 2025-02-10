@@ -19,7 +19,7 @@ def eia_map(sub, offset, freq, api_key):
     :param freq: String with an EIA frequency code (string)
     :return: A DataFrame containing the unique identifiers for updated/recent data for products
     """
-    root = "https://api.eia.gov/"
+    root = "https://api.eia.gov/v2"
     path = f"{root}{sub}"
     headers = default_headers.copy()
     headers.update({'offset': offset, 'freq': freq})
