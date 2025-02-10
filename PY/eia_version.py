@@ -1,9 +1,6 @@
-from map_headers import map_headers
-from eia_call import eia_call
+import requests
 
 def eia_version(api_key):
-    import requests
-    
     url = f"https://api.eia.gov/v2?api_key={api_key}"
     response = requests.get(url).json()
     
