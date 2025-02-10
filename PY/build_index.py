@@ -1,6 +1,6 @@
+from eia_meta import eia_meta
 
-
-def build_index(sub: str, file_path: str, api_key: str):
+def build_index(sub: str, api_key: str):
     """
     Build_Index
     
