@@ -19,13 +19,22 @@ def eia_map(sub, offset, freq, api_key):
     :param freq: String with an EIA frequency code (string)
     :return: A DataFrame containing the unique identifiers for updated/recent data for products
     """
-    root = "https://api.eia.gov/v2"
+    root = "https://api.eia.gov/v2/"
     path = f"{root}{sub}"
     headers = default_headers.copy()
     headers.update({'offset': offset, 'freq': freq})
 
     request = map_headers(url=path, api_key=api_key, headers=headers)
     response = eia_call(request)
+
+    if response is None:
+        print("API call failed, returning empty DataFrame.")
+        return pd.DataFrame()
+
+    if 'data' not in response:
+        print(f"API response does not contain 'data': {response}")
+        return pd.DataFrame()
+    
     data = response['data']
 
     deselect_list = ["period", "value"]
@@ -38,3 +47,5 @@ def eia_map(sub, offset, freq, api_key):
     data = data.drop_duplicates()
 
     return data
+
+eia_map(sub='petroleum', offset=0, freq='monthly', api_key='OaPIhpkD7JVc5gb7xOTMZMh9iA9uegIVBFRj6wQg')
