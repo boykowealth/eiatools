@@ -2,17 +2,16 @@ from map_headers import map_headers
 from eia_call import eia_call
 
 def eia_version(api_key):
-    """
-    EIA Version Request
+    import requests
+    
+    url = f"https://api.eia.gov/v2?api_key={api_key}"
+    response = requests.get(url).json()
+    
+    # Ensure 'apiVersion' is at the correct level
+    api_version = response.get('apiVersion', 'Unknown version')
+    excel_version = response.get('ExcelAddInVersion', 'Unknown version')
 
-    :param api_key: A string containing your EIA API Key (string)
-    :return: A dictionary containing API and Excel Versions for EIA's web service (dictionary)
-    """
-    root = "https://api.eia.gov/"
-    url = map_headers(api_key=api_key)
-    response = eia_call(url)
-
-    return {
-        'api': response['apiVersion'],
-        'excel': response['ExcelAddInVersion']
-    }
+    versions = [['EIA API Version', api_version], ['Excel AddIn Version', excel_version]]
+    
+    print(versions)
+    return api_version, excel_version
