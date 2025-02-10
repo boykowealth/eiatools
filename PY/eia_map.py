@@ -47,5 +47,3 @@ def eia_map(sub, offset, freq, api_key):
     data = data.drop_duplicates()
 
     return data
-
-eia_map(sub='petroleum', offset=0, freq='monthly', api_key='OaPIhpkD7JVc5gb7xOTMZMh9iA9uegIVBFRj6wQg')
