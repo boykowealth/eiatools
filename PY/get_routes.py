@@ -1,4 +1,4 @@
-import panadas as pd
+import pandas as pd
 def get_routes(m_data):
     """
     Get routes dataframe from EIA metadata

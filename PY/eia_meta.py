@@ -8,7 +8,7 @@ def eia_meta(sub, api_key):
     :param api_key: String with your EIA API key (string)
     :return: A list containing the JSON data (dictionary)
     """
-    root = "https://api.eia.gov/v2"
+    root = "https://api.eia.gov/v2/"
     url = f"{root}{sub}?api_key={api_key}"
     response = eia_call(url)
     return response

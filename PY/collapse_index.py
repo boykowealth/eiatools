@@ -9,6 +9,6 @@ def collapse_index(list_in: list) -> pd.DataFrame:
     :return: A single pandas DataFrame with all input DataFrames stacked.
     """
     if not list_in:
-        return pd.DataFrame()  # Return an empty DataFrame if the list is empty
+        return pd.DataFrame()
     
     return pd.concat(list_in, ignore_index=True)

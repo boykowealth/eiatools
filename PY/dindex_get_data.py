@@ -26,7 +26,7 @@ def dindex_get_data(dindex_table, api_key, start=None, end=None):
             for f in f_list:
                 f_id = d_row[f]
                 facet_row = {'facet_name': f, 'facet_id': f_id}
-                facet_df = facet_df.append(facet_row, ignore_index=True)
+                facet_df = pd.concat([facet_df, pd.DataFrame([facet_row])], ignore_index=True)
 
             facet_df = facet_df[facet_df['facet_id'] != '#N/A']
             facet_df = facet_df[facet_df['facet_id'] != '(NA)']
@@ -50,8 +50,8 @@ def dindex_get_data(dindex_table, api_key, start=None, end=None):
             else:
                 offset += 5000
 
-            dat_out = dat_out.append(d_out, ignore_index=True)
+            dat_out = pd.concat([dat_out, d_out], ignore_index=True)
 
-        data_out = data_out.append(dat_out, ignore_index=True)
+        dat_out = pd.concat([dat_out, d_out], ignore_index=True)
 
     return data_out

@@ -13,7 +13,7 @@ def data_tree(r_tree: pd.DataFrame, api_key: str) -> pd.DataFrame:
 
     for _, r_row in r_tree.iterrows():
         endpoint = r_row['api_endpoint']
-        freq_list = r_row['freq']
+        freq_list = freq_list = r_row['freq'] if isinstance(r_row['freq'], list) else [r_row['freq']]
 
         print(endpoint)
         data_out = None
@@ -70,7 +70,7 @@ def data_tree(r_tree: pd.DataFrame, api_key: str) -> pd.DataFrame:
                 "route_2_id", "route_2_name", "route_2_description",
                 "route_3_id", "route_3_name", "route_3_description"
             ]
-            metadata = r_row[selected_cols].to_frame().T.dropna(axis=1, how='all')
+            metadata = r_row.reindex(selected_cols).to_frame().T.dropna(axis=1, how='all')
             data_out = pd.concat([data_out.reset_index(drop=True), metadata.reset_index(drop=True)], axis=1)
 
             if output is None:

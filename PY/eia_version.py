@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 
 def eia_version(api_key):
     url = f"https://api.eia.gov/v2?api_key={api_key}"
@@ -10,5 +11,6 @@ def eia_version(api_key):
 
     versions = [['EIA API Version', api_version], ['Excel AddIn Version', excel_version]]
     
-    print(versions)
+    print(pd.DataFrame(versions))
     return api_version, excel_version
+

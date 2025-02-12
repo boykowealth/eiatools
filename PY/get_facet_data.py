@@ -12,4 +12,4 @@ def get_facet_data(sub, facet_id, api_key):
     """
     f_data = eia_meta(sub=f"{sub}/facet/{facet_id}", api_key=api_key)
     # print(f_data['facets'])
-    return pd.DataFrame(f_data['facets'])
+    return [facet['id'] for facet in f_data['facets']]

@@ -6,4 +6,6 @@ def get_all_freq(m_data):
     :return: A list of frequency codes applicable to the EIA API
     """
     # print(m_data['frequency']['id'])
-    return m_data['frequency']['id']
+    # print(type(m_data['frequency']))
+    # print(m_data['frequency'])
+    return [freq['id'] for freq in m_data['frequency']]

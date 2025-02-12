@@ -16,7 +16,7 @@ def eia_data(api_endpoint, freq, facets=None, start=None, end=None, sort_df=None
     :param api_key: your EIA API key (string)
     :return: A DataFrame containing the fetched data
     """
-    root = "https://api.eia.gov/"
+    root = "https://api.eia.gov/v2/"
     api_req = f"{root}{api_endpoint}/data?api_key={api_key}&length=5000"
     
     # Adding start header
@@ -28,7 +28,7 @@ def eia_data(api_endpoint, freq, facets=None, start=None, end=None, sort_df=None
         api_req += f"&end={end}"
     
     # Adding offset
-    if offset:
+    if isinstance(offset, int) and offset > 0:
         api_req += f"&offset={offset}"
     
     # Adding data column names
@@ -47,4 +47,4 @@ def eia_data(api_endpoint, freq, facets=None, start=None, end=None, sort_df=None
             api_req += f"&sort[{i}][column]={row['sortby']}&sort[{i}][direction]={row['direction']}"
     
     output = eia_call(api_req)
-    return pd.DataFrame(output['data'])
+    return pd.DataFrame(output.get('data', []))
