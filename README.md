@@ -26,21 +26,20 @@ _EIATools is a collaberative project aimed at making the EIA APIv2 accessible to
 + route_tree.py – Constructs a structured representation of API routes for easier reference and usage.
 
 ## Installation
-
 To install the EIATools package, follow these steps:
 
-Clone the repository:
-
+**Clone the repository:**
+```
 git clone https://github.com/boykowealth/eiatools.git
 cd eiatools
-
-Install dependencies and the package:
-
+```
+**Install dependencies and the package:**
+```
 pip install -r requirements.txt
 python setup.py install
+```
 
 ## Usage
-
 After installation, you can import and use the package modules to interact with the EIA API. Example usage and documentation will be added in future updates.
 
 ## Contributing
@@ -48,7 +47,6 @@ After installation, you can import and use the package modules to interact with 
 Contributions are welcome! Please fork the repository and submit a pull request with your changes. Ensure that your code adheres to the project's coding standards and includes appropriate tests.
 
 ## License
-
 This project is licensed under the GPL-3.0 License. See the LICENSE file for details.
 
  
